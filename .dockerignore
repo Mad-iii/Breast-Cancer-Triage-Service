@@ -1,0 +1,10 @@
+.git
+.dvc/cache
+.dvc/tmp
+dvc-remote
+.venv
+__pycache__
+*.pyc
+artifacts
+.env
+screenshots

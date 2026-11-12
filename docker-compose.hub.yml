@@ -1,0 +1,27 @@
+services:
+  api:
+    image: ${DOCKERHUB_USER:?set DOCKERHUB_USER in .env}/breast-cancer-triage-api:${IMAGE_TAG:-1.0.0}
+    environment:
+      DECISION_THRESHOLD: ${DECISION_THRESHOLD:-0.5}
+      LOG_LEVEL: ${LOG_LEVEL:-INFO}
+      REDIS_HOST: redis
+      REDIS_PORT: "6379"
+    ports:
+      - "${API_HOST_PORT:-8000}:8000"
+    depends_on:
+      redis:
+        condition: service_healthy
+
+  redis:
+    image: redis:7.4.1-alpine
+    command: ["redis-server", "--appendonly", "yes"]
+    volumes:
+      - redis-data:/data
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 5s
+      timeout: 3s
+      retries: 5
+
+volumes:
+  redis-data:
