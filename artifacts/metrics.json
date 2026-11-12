@@ -1,0 +1,29 @@
+{
+  "selected": "logistic_regression",
+  "candidates": {
+    "logistic_regression": {
+      "cv": {
+        "malignant_recall": 0.9625,
+        "accuracy": 0.9768243785084202,
+        "roc_auc": 0.9928367003367005
+      },
+      "test": {
+        "malignant_recall": 0.975,
+        "accuracy": 0.9907407407407407,
+        "roc_auc": 0.9977941176470588
+      }
+    },
+    "random_forest": {
+      "cv": {
+        "malignant_recall": 0.925,
+        "accuracy": 0.9558941459502807,
+        "roc_auc": 0.9889509680134679
+      },
+      "test": {
+        "malignant_recall": 0.95,
+        "accuracy": 0.9722222222222222,
+        "roc_auc": 0.9939338235294117
+      }
+    }
+  }
+}
